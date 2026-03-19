@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc6b41e1-626e-48d4-96dd-d056d9b96261" name="Changes" comment="MNFCT-2-module implemented 1st test with kiss, dry, yagni principles&#10;add tests:&#10;1. search project&#10;2. select free projects&#10;3. open free projects&#10;4. open new project&#10;add def:&#10;1. search project&#10;2. login user&#10;3. open home page">
+    <list default="true" id="dc6b41e1-626e-48d4-96dd-d056d9b96261" name="Changes" comment="MNFCT-2.1-module &#10;added dotenv library for configuration">
+      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/first_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/first_test.py" afterDir="false" />
@@ -17,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Python Unit Test" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -44,6 +45,9 @@
     &quot;accountId&quot;: &quot;b4030f93-2442-424d-85ec-bf4b36110fc2&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -62,22 +66,24 @@
     "Python tests.Python tests for tests.first_test.login_with_invalid_creds.executor": "Run",
     "Python tests.Python tests for tests.first_test.test_login_with_invalid_creds.executor": "Run",
     "Python tests.Python tests for tests.first_test.test_open_home_page.executor": "Run",
-    "Python tests.Python tests for tests.first_test.test_search_project_in_company.executor": "Run",
+    "Python tests.Python tests for tests.first_test.test_search_project_in_company.executor": "Coverage",
     "Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_free_project.executor": "Run",
     "Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_new_project.executor": "Run",
+    "Python tests.Python tests for tests.first_test.test_should_be_possible_to_select_free_project.executor": "Run",
+    "Python tests.Python tests in first_test.py.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "MNFGT-2-module",
+    "git-widget-placeholder": "MNFCT-2.1-module-config",
     "ignore_missing_gitignore": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -93,23 +99,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_new_project">
-    <configuration name="Python tests for tests.first_test.login_with_invalid_creds" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="testomat_tests" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.first_test.login_with_invalid_creds&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Python tests in first_test.py">
     <configuration name="Python tests for tests.first_test.test_login_with_invalid_creds" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="testomat_tests" />
       <option name="ENV_FILES" value="" />
@@ -158,7 +148,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.first_test.test_should_be_possible_to_open_new_project" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.first_test.test_should_be_possible_to_open_new_project" type="tests" factoryName="Autodetect" nameIsGenerated="true">
       <module name="testomat_tests" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,13 +164,45 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for tests.first_test.test_should_be_possible_to_select_free_project" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="testomat_tests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.first_test.test_should_be_possible_to_select_free_project&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in first_test.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="testomat_tests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/first_test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_new_project" />
-        <item itemvalue="Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_free_project" />
-        <item itemvalue="Python tests.Python tests for tests.first_test.test_search_project_in_company" />
+        <item itemvalue="Python tests.Python tests in first_test.py" />
         <item itemvalue="Python tests.Python tests for tests.first_test.test_login_with_invalid_creds" />
-        <item itemvalue="Python tests.Python tests for tests.first_test.login_with_invalid_creds" />
+        <item itemvalue="Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_free_project" />
+        <item itemvalue="Python tests.Python tests for tests.first_test.test_should_be_possible_to_select_free_project" />
+        <item itemvalue="Python tests.Python tests for tests.first_test.test_search_project_in_company" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773924746533</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="MNFCT-2.1-module &#10;added dotenv library for configuration">
+      <option name="closed" value="true" />
+      <created>1773958632569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1773958632569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +269,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add initial setup for Playwright tests" />
     <MESSAGE value="MNFCT-2-module implemented 1st test with kiss, dry, yagni principles&#10;add tests:&#10;1. search project&#10;2. select free projects&#10;3. open free projects&#10;4. open new project&#10;add def:&#10;1. search project&#10;2. login user&#10;3. open home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="MNFCT-2-module implemented 1st test with kiss, dry, yagni principles&#10;add tests:&#10;1. search project&#10;2. select free projects&#10;3. open free projects&#10;4. open new project&#10;add def:&#10;1. search project&#10;2. login user&#10;3. open home page" />
+    <MESSAGE value="MNFCT-2.1-module &#10;added dotenv library for configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="MNFCT-2.1-module &#10;added dotenv library for configuration" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
@@ -247,6 +278,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/testomat_tests$main.coverage" NAME="main Coverage Results" MODIFIED="1773514255848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/testomat_tests$.coverage" NAME=" Coverage Results" MODIFIED="1773917346163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/testomat_tests$.coverage" NAME=" Coverage Results" MODIFIED="1773960249253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
