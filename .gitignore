@@ -1,5 +1,8 @@
 .idea
 .env
-.venv!/src/data_type_experiments/
 /src/data_type_experiments/
+test_result
 
+data_type_experiments
+
+/videos/

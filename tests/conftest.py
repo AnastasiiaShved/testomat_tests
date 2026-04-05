@@ -19,6 +19,7 @@ class Config:
     password: str
     login_url: str
 
+
 @pytest.fixture(scope="session")
 def config():
     return Config(
@@ -27,6 +28,30 @@ def config():
         password=os.getenv("PASSWORD"),
         base_url=os.getenv("BASE_URL"),
     )
+
+
+@pytest.fixture(scope="session")
+def browser_type_launch_args(browser_type_launch_args: dict) -> dict:
+    return {
+        **browser_type_launch_args,
+        "headless": False,
+        "slow_mo": 150,
+        "timeout": 30000,
+    }
+
+
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args: dict) -> dict:
+    return {
+        **browser_context_args,
+        "base_url": "https://app.testomat.io",
+        "viewport": {"width": 1320, "height": 980},
+        "locale": "uk_UA",
+        "timezone_id": "Europe/Kyiv",
+        "record_video_dir": "videos/",
+        "permissions": ["geolocation"],
+
+    }
 
 
 @pytest.fixture(scope="function")

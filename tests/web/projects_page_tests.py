@@ -1,17 +1,22 @@
+import pytest
 from playwright.sync_api import expect
 
 from src.web.Application import Application
 
 
+@pytest.mark.smoke
+@pytest.mark.web
 def test_search_project(app: Application, login):
-    app.projects_page.search_project("Proj1")
-    app.projects_page.should_have_project("Proj1")
+    app.projects_page.search_project("P7roj1")
+    app.projects_page.should_have_project("P7roj1")
 
 
 def test_projects_page_should_be_loaded(app: Application, login):
     app.projects_page.should_be_loaded()
 
 
+@pytest.mark.smoke
+@pytest.mark.web
 def test_get_projects_count(app: Application, login):
     count = app.projects_page.get_projects_count()
 
@@ -45,6 +50,8 @@ def test_project_page_header_flow(app: Application, login):
     print(project.badges_count())
 
 
+@pytest.mark.smoke
+@pytest.mark.web
 def test_print_project_badges(app: Application, login):
     target_project = "QA_SH"
 

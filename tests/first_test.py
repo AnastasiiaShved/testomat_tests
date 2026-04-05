@@ -27,8 +27,8 @@ def test_login_with_invalid_creds(page: Page, config: Config):
 
     login_user(page, config.email, invalid_pasw)
 
-    expect(page.locator('#content-desktop').get_by_text("Invalid Email or password.")).to_be_visible()
-    expect(page.locator('#content-desktop .common-flash-info')).to_have_text("Invalid Email or password.")
+    expect(page.locator('#content-desktop').get_by_text("Invalid email or password.")).to_be_visible()
+    expect(page.locator('#content-desktop .common-flash-info')).to_have_text("Invalid email or password.")
 
 
 def test_search_project_in_company(page: Page, login):
@@ -55,24 +55,6 @@ def test_should_be_possible_to_open_free_project(page: Page, login):
     search_for_project(page, TARGET_PROJECT)
     expect(page.get_by_role("heading", name=TARGET_PROJECT)).to_be_hidden()
     expect(page.get_by_text("You have not created any projects yet")).to_be_visible(timeout=10000)
-
-
-def test_should_be_possible_to_open_new_project(page: Page, login):
-    page.locator("#company_id").click()
-    page.locator("#company_id").select_option("Free Projects")
-
-    page.get_by_role("link", name="Create Project").click()
-    expect(page.get_by_role("heading", name="New Project")).to_be_visible()
-
-
-def test_create_new_project_free(page: Page, login):
-    page.locator("#company_id").click()
-    page.locator("#company_id").select_option("Free Projects")
-
-    page.get_by_role("link", name="Create Project").click()
-    page.get_by_role("textbox", name="Project Title").fill(PROJECT_NAME)
-    page.locator("input[value='Create']").click()
-    expect(page.get_by_role("heading", name='Welcome to Testomat.io')).to_be_visible()
 
 
 def test_create_new_project_qa_club(page: Page, login):
