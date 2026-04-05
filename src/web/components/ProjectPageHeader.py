@@ -14,7 +14,7 @@ class ProjectsPageHeader:
         self.table_view_button = self.header.locator("#table-view")
 
     def should_be_loaded(self):
-        expect(self.header).to_be_visible()
+        expect(self.header).to_be_visible(timeout=15000)
         expect(self.title).to_have_text("Projects")
 
     def get_title(self) -> str:

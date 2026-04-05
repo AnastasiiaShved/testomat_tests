@@ -3,10 +3,9 @@ from dataclasses import dataclass
 
 import pytest
 from dotenv import load_dotenv
-from playwright.sync_api import Page
+from playwright.sync_api import Browser, BrowserContext
 
 from src.web.Application import Application
-from src.web.pages.LoginPage import LoginPage
 
 load_dotenv()
 
@@ -14,54 +13,87 @@ load_dotenv()
 @dataclass(frozen=True)
 class Config:
     base_url: str
-    # base_app_url: str
     email: str
     password: str
-    login_url: str
+    app_base_url: str
 
 
 @pytest.fixture(scope="session")
 def config():
     return Config(
-        login_url=os.getenv("BASE_APP_URL"),
+        app_base_url=os.getenv("BASE_APP_URL"),
         email=os.getenv("EMAIL"),
         password=os.getenv("PASSWORD"),
         base_url=os.getenv("BASE_URL"),
     )
 
 
-@pytest.fixture(scope="session")
-def browser_type_launch_args(browser_type_launch_args: dict) -> dict:
-    return {
-        **browser_type_launch_args,
-        "headless": False,
-        "slow_mo": 150,
-        "timeout": 30000,
-    }
+BROWSER_LAUNCH_ARGS = {
+    "headless": False,
+    "slow_mo": 700,
+    "timeout": 30000,
+}
+
+BROWSER_CONTEXT_ARGS = {
+    "base_url": os.getenv("BASE_APP_URL"),
+    "viewport": {"width": 1320, "height": 980},
+    "locale": "uk_UA",
+    "timezone_id": "Europe/Kyiv",
+    "record_video_dir": "videos/",
+    "permissions": ["geolocation"],
+}
 
 
 @pytest.fixture(scope="session")
-def browser_context_args(browser_context_args: dict) -> dict:
-    return {
-        **browser_context_args,
-        "base_url": "https://app.testomat.io",
-        "viewport": {"width": 1320, "height": 980},
-        "locale": "uk_UA",
-        "timezone_id": "Europe/Kyiv",
-        "record_video_dir": "videos/",
-        "permissions": ["geolocation"],
-
-    }
+def browser_instance(playwright) -> Browser:
+    browser = playwright.chromium.launch(**BROWSER_LAUNCH_ARGS)
+    yield browser
+    browser.close()
 
 
-@pytest.fixture(scope="function")
-def app(page: Page) -> Application:
-    return Application(page)
+@pytest.fixture(scope="session")
+def shared_context(browser_instance: Browser) -> BrowserContext:
+    ctx = browser_instance.new_context(**BROWSER_CONTEXT_ARGS)
+    ctx.new_page()
+    yield ctx
+    ctx.close()
 
 
 @pytest.fixture(scope="function")
-def login(page: Page, config: Config):
-    login_page = LoginPage(page)
-    login_page.open()
-    login_page.is_loaded()
-    login_page.login(config.email, config.password)
+def shared_app(shared_context: BrowserContext) -> Application:
+    clear_browser_state(shared_context)
+    page = shared_context.pages[0]
+    yield Application(page)
+    clear_browser_state(shared_context)
+
+
+@pytest.fixture(scope="session")
+def logged_context(browser_instance: Browser) -> BrowserContext:
+    ctx = browser_instance.new_context(**BROWSER_CONTEXT_ARGS)
+    ctx.new_page()
+    yield ctx
+    ctx.close()
+
+
+@pytest.fixture(scope="function")
+def logged_app(logged_context: BrowserContext, config: Config) -> Application:
+    page = logged_context.pages[0]
+    application = Application(page)
+    application.login_page.open()
+    application.login_page.is_loaded()
+    application.login_page.login_user(config.email, config.password)
+    application.projects_page.should_be_loaded()
+    yield application
+    clear_browser_state(logged_context)
+
+
+def clear_browser_state(context: BrowserContext) -> None:
+    for page in context.pages:
+        try:
+            page.evaluate("localStorage.clear()")
+            page.evaluate("sessionStorage.clear()")
+        except Exception:
+            pass
+    for page in context.pages:
+        page.goto("about:blank")
+    context.clear_cookies()

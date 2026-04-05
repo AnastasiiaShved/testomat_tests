@@ -8,7 +8,7 @@ from src.web.pages.ProjectPage import ProjectPage
 class NewProjectsPage:
     def __init__(self, page: Page):
         self.page = page
-        self.__form_container = page.locator("#content-desktop [action='/projects']")
+        self.__form_container = page.locator("#content-desktop form#new_project")
 
     def open(self) -> Self:
         self.page.goto("/projects/new")

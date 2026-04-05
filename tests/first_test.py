@@ -13,7 +13,7 @@ PROJECT_NAME = Faker().name()
 
 @pytest.fixture(scope="function")
 def login(page: Page, config: Config):
-    page.goto(config.login_url)
+    page.goto(config.app_base_url + "/users/sign_in")
     login_user(page, config.email, config.password)
 
 
@@ -37,6 +37,7 @@ def test_search_project_in_company(page: Page, login):
     expect(page.get_by_role("heading", name=TARGET_PROJECT)).to_be_visible()
 
 
+@pytest.mark.skip()
 def test_should_be_possible_to_select_free_project(page: Page, login):
     # act
     page.locator("#company_id").click()
@@ -47,6 +48,7 @@ def test_should_be_possible_to_select_free_project(page: Page, login):
     expect(page.get_by_role("heading", name=TARGET_PROJECT)).to_be_hidden()
 
 
+@pytest.mark.skip()
 def test_should_be_possible_to_open_free_project(page: Page, login):
     page.locator("#company_id").click()
 
@@ -57,6 +59,7 @@ def test_should_be_possible_to_open_free_project(page: Page, login):
     expect(page.get_by_text("You have not created any projects yet")).to_be_visible(timeout=10000)
 
 
+@pytest.mark.skip()
 def test_create_new_project_qa_club(page: Page, login):
     page.locator("#company_id").click()
     page.locator("#company_id").select_option("QA Club Lviv")

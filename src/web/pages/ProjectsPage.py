@@ -14,10 +14,8 @@ class ProjectsPage:
         self.info_message = page.locator(".common-flash-info")
 
     def is_loaded(self):
-        expect(self.page.locator(".common-flash-success")).to_be_visible()
-        expect(self.page.locator(".common-flash-error")).to_have_text("Signed in successfully")
-
-        expect(self.page.locator(".common-flash-success", has_text='Signed in successfully')).to_be_visible()
+        expect(self.page.locator(".common-flash-success", has_text='Signed in successfully')).to_be_visible(
+            timeout=15000)
 
     def should_be_loaded(self):
         self.header.should_be_loaded()

@@ -15,3 +15,4 @@ class HomePage:
 
     def click_login(self):
         self.page.get_by_text("Log in", exact=True).click()
+        self.page.wait_for_url("https://app.testomat.io/**", timeout=15000)
