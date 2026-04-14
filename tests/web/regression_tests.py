@@ -1,8 +1,8 @@
 import pytest
 from faker import Faker
 
-from src.web.Application import Application
-from tests.conftest import Config
+from src.web.application import Application
+from tests.conftest import Config, Projects
 
 
 @pytest.mark.regression
@@ -42,8 +42,8 @@ def test_projects_list_is_not_empty(logged_app: Application):
 
 @pytest.mark.regression
 def test_project_search_returns_result(logged_app: Application):
-    logged_app.projects_page.search_project("Proj1")
-    logged_app.projects_page.should_have_project("Proj1")
+    logged_app.projects_page.search_project(Projects.SEARCH_PROJECT)
+    logged_app.projects_page.should_have_project(Projects.SEARCH_PROJECT)
 
 
 @pytest.mark.regression

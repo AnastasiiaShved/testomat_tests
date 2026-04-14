@@ -1,14 +1,15 @@
 import pytest
 from playwright.sync_api import expect
 
-from src.web.Application import Application
+from src.web.application import Application
+from tests.conftest import Companies, Projects
 
 
 @pytest.mark.smoke
 @pytest.mark.web
 def test_search_project(logged_app: Application):
-    logged_app.projects_page.search_project("Proj1")
-    logged_app.projects_page.should_have_project("Proj1")
+    logged_app.projects_page.search_project(Projects.SEARCH_PROJECT)
+    logged_app.projects_page.should_have_project(Projects.SEARCH_PROJECT)
 
 
 def test_projects_page_should_be_loaded(logged_app: Application):
@@ -35,17 +36,15 @@ def test_get_projects_count_dynamic(logged_app: Application):
 
 
 def test_project_page_header_flow(logged_app: Application):
-    target_project = "QA_SH"
-
     logged_app.projects_page.should_be_loaded()
-    logged_app.projects_page.header.select_company("QA Club Lviv")
+    logged_app.projects_page.header.select_company(Companies.QA_CLUB_LVIV)
     expect(
         logged_app.projects_page.header.company_select.locator("option:checked")
-    ).to_have_text("QA Club Lviv")
-    logged_app.projects_page.header.search(target_project)
+    ).to_have_text(Companies.QA_CLUB_LVIV)
+    logged_app.projects_page.header.search(Projects.TARGET_PROJECT)
 
-    project = logged_app.projects_page.get_project_by_name(target_project)
-    project.should_have_title(target_project)
+    project = logged_app.projects_page.get_project_by_name(Projects.TARGET_PROJECT)
+    project.should_have_title(Projects.TARGET_PROJECT)
 
     print(project.badges_count())
 
@@ -53,13 +52,11 @@ def test_project_page_header_flow(logged_app: Application):
 @pytest.mark.smoke
 @pytest.mark.web
 def test_print_project_badges(logged_app: Application):
-    target_project = "QA_SH"
-
     logged_app.projects_page.should_be_loaded()
-    logged_app.projects_page.header.search(target_project)
+    logged_app.projects_page.header.search(Projects.TARGET_PROJECT)
 
-    project = logged_app.projects_page.get_project_by_name(target_project)
-    project.should_have_title(target_project)
+    project = logged_app.projects_page.get_project_by_name(Projects.TARGET_PROJECT)
+    project.should_have_title(Projects.TARGET_PROJECT)
     badges = project.get_badges()
 
     print(badges)

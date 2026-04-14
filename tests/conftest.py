@@ -5,9 +5,18 @@ import pytest
 from dotenv import load_dotenv
 from playwright.sync_api import Browser, BrowserContext
 
-from src.web.Application import Application
+from src.web.application import Application
 
 load_dotenv()
+
+
+class Projects:
+    SEARCH_PROJECT = "Proj1"
+    TARGET_PROJECT = "QA_SH"
+
+
+class Companies:
+    QA_CLUB_LVIV = "QA Club Lviv"
 
 
 @dataclass(frozen=True)
@@ -60,10 +69,10 @@ def shared_context(browser_instance: Browser) -> BrowserContext:
 
 
 @pytest.fixture(scope="function")
-def shared_app(shared_context: BrowserContext) -> Application:
+def shared_app(shared_context: BrowserContext, config: Config) -> Application:
     clear_browser_state(shared_context)
     page = shared_context.pages[0]
-    yield Application(page)
+    yield Application(page, config.base_url, config.app_base_url)
     clear_browser_state(shared_context)
 
 
@@ -77,8 +86,9 @@ def logged_context(browser_instance: Browser) -> BrowserContext:
 
 @pytest.fixture(scope="function")
 def logged_app(logged_context: BrowserContext, config: Config) -> Application:
+    clear_browser_state(logged_context)
     page = logged_context.pages[0]
-    application = Application(page)
+    application = Application(page, config.base_url, config.app_base_url)
     application.login_page.open()
     application.login_page.is_loaded()
     application.login_page.login_user(config.email, config.password)
