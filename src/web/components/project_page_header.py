@@ -6,6 +6,8 @@ class ProjectsPageHeader:
         self.page = page
         self.header = page.locator(".common-page-header")
         self.title = self.header.locator("h2")
+        self.enterprise_plan_label = self.header.locator(".tooltip-project-plan")
+        self.free_plan_label = self.header.locator(".tooltip-project-plan")
         self.company_select = self.header.locator("#company_id")
         self.plan = self.header.locator(".tooltip-project-plan span")
         self.search_input = self.header.locator("input#search")

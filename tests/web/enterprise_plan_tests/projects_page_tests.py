@@ -2,7 +2,7 @@ import pytest
 from playwright.sync_api import expect
 
 from src.web.application import Application
-from tests.conftest import Companies, Projects
+from tests.fixtures.config import Companies, Projects
 
 
 @pytest.mark.smoke

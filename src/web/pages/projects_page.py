@@ -13,6 +13,10 @@ class ProjectsPage:
         self.success_message = page.locator(".common-flash-success")
         self.info_message = page.locator(".common-flash-info")
 
+    def open(self):
+        self.page.goto("/projects")
+        return self
+
     def is_loaded(self):
         expect(self.page.locator(".common-flash-success", has_text='Signed in successfully')).to_be_visible(
             timeout=15000)
