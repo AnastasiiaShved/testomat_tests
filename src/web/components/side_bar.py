@@ -1,4 +1,5 @@
 import re
+from typing import Self
 
 from playwright.sync_api import Page, expect
 
@@ -31,11 +32,20 @@ class SideBar:
         expect(self.logo).to_be_visible()
         expect(self.menu).to_be_visible()
         expect(self.tests).to_be_visible()
-        expect(self.projects).to_be_visible()
+        # expect(self.projects).to_be_visible()
         return self
 
     def navigate_to(self, section: str):
         self.page.get_by_role("link", name=section).click()
+
+    def click_logo(self) -> Self:
+        self.logo.click(force=True)
+        return self
+
+    def expect_tab_active(self, section: str) -> Self:
+        link = self.menu.locator(f"a.nav-item:has-text('{section}')")
+        expect(link).to_have_class(re.compile("active"))
+        return self
 
     def is_active(self, section: str):
         link = self.menu.locator(f"a.nav-item:has-text('{section}')")

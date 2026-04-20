@@ -34,3 +34,6 @@ class NewProjectsPage:
     def submit_project_create(self) -> ProjectPage:
         self.__form_container.locator("input[type='submit'][value='Create']").click()
         return ProjectPage(self.page)
+
+    def click_create(self) -> ProjectPage:
+        return self.submit_project_create()

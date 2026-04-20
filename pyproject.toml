@@ -9,6 +9,7 @@ dependencies = [
     "pytest-html==4.2.0",
     "pytest-playwright==0.7.2",
     "python-dotenv==1.2.2",
+    "requests==2.32.3",
 ]
 
 [tool.pytest.ini_options]
@@ -22,9 +23,6 @@ addopts = [
     "-ra",
     "--strict-markers",
     "--tb=short",
-    "--tracing=retain-on-failure",
-    "--screenshot=on",
-    "--output=test_result/traces/",
     "--html=test_result/report.html",
     "--self-contained-html",
 ]
