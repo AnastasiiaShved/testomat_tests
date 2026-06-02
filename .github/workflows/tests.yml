@@ -23,7 +23,7 @@ jobs:
     uses: ./.github/workflows/api_tests.yml
     secrets:
       BASE_APP_URL: ${{ secrets.BASE_APP_URL }}
-      TESTOMAT_TOKEN: ${{ secrets.TESTOMAT_TOKEN }}
+      API_TOKEN: ${{ secrets.API_TOKEN }}
 
   lint:
     runs-on: ubuntu-latest

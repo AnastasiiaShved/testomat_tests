@@ -10,7 +10,7 @@ on:
     secrets:
       BASE_APP_URL:
         required: true
-      TESTOMAT_TOKEN:
+      API_TOKEN:
         required: true
 
 
@@ -35,7 +35,7 @@ jobs:
       - name: Run API tests
         env:
           BASE_APP_URL: ${{ secrets.BASE_APP_URL }}
-          API_TOKEN: ${{ secrets.TESTOMAT_TOKEN }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
         run: uv run pytest tests/api/ -v --tb=short --html=test_result/api_report.html --self-contained-html
 
       - name: Upload HTML report
