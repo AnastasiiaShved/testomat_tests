@@ -19,12 +19,6 @@ on:
 
 
 jobs:
-  api-tests:
-    uses: ./.github/workflows/api_tests.yml
-    secrets:
-      BASE_APP_URL: ${{ secrets.BASE_APP_URL }}
-      API_TOKEN: ${{ secrets.API_TOKEN }}
-
   lint:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
@@ -49,7 +43,7 @@ jobs:
 
   smoke-tests:
     runs-on: ubuntu-latest
-    needs: [ lint, api-tests ]
+    needs: [ lint ]
     if: >
       always() && (
         github.event_name == 'pull_request' ||

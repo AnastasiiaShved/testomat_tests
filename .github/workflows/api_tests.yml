@@ -6,12 +6,6 @@ on:
   schedule:
     - cron: '0 6 * * 1-5'
   workflow_dispatch:
-  workflow_call:
-    secrets:
-      BASE_APP_URL:
-        required: true
-      API_TOKEN:
-        required: true
 
 
 jobs:
