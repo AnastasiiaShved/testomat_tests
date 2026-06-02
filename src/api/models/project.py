@@ -19,11 +19,11 @@ class ProjectSettings(BaseModel):
 
 
 class ProjectAttributes(BaseModel):
-    model_config = ConfigDict(populate_by_name=True)
+    model_config = ConfigDict(populate_by_name=True, extra="ignore")
 
     title: str = ""
     status: str = ""
-    tests_count: int = Field(default=0, alias="tests-count")
+    tests_count: int | None = Field(default=None, alias="tests-count")
     created_at: datetime | None = Field(default=None, alias="created-at")
     lang: str | None = None
     framework: str | None = None
@@ -55,7 +55,7 @@ class Project(BaseModel):
         return self.attributes.status
 
     @property
-    def tests_count(self) -> int:
+    def tests_count(self) -> int | None:
         return self.attributes.tests_count
 
 
