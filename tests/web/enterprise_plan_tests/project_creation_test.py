@@ -5,6 +5,7 @@ from src.api.projects_client import ProjectsClient
 from src.web.application import Application
 
 
+@pytest.mark.smoke
 def test_new_project_creation(logged_app: Application):
     target_project_name = Faker().company()
 

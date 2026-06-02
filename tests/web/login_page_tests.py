@@ -44,6 +44,7 @@ def test_login_invalid(shared_app: Application, email: str, password: str):
     shared_app.page.wait_for_timeout(2000)
 
 
+@pytest.mark.smoke
 def test_login_with_valid_creds(shared_app: Application, config: Config):
     shared_app.home_page.open()
     shared_app.home_page.is_loaded()

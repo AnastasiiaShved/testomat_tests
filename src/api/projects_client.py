@@ -7,6 +7,7 @@ import requests
 class ProjectAttributes:
     title: str
     url: str | None
+    slug: str | None
     description: str | None
     private: bool
     enabled: bool
@@ -20,6 +21,7 @@ class ProjectAttributes:
         return cls(
             title=data["title"],
             url=data.get("testomatio-url"),
+            slug=data.get("slug"),
             description=data.get("description"),
             private=data.get("private", False),
             enabled=data.get("enabled", True),
@@ -39,6 +41,10 @@ class Project:
     @property
     def url(self) -> str | None:
         return self.attributes.url
+
+    @property
+    def slug(self) -> str | None:
+        return self.attributes.slug
 
     @property
     def title(self) -> str:

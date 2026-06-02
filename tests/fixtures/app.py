@@ -1,5 +1,4 @@
 import json
-import os
 from pathlib import Path
 
 import pytest
@@ -25,7 +24,7 @@ def get_or_create_context(
     has_state = storage_state_path is not None and storage_state_path.exists()
 
     kwargs = {
-        "base_url": os.getenv("BASE_APP_URL"),
+        "base_url": base_url,
         "viewport": {"width": 1320, "height": 980},
         "locale": "uk_UA",
         "timezone_id": "Europe/Kyiv",
@@ -76,7 +75,7 @@ def logged_page(browser_instance: Browser, config: Config) -> BrowserContext:
     context, need_login = get_or_create_context(browser_instance, config.app_base_url, STORAGE_STATE_PATH)
     page = context.new_page()
     if need_login:
-        open_login_and_autorize(config, page)
+        open_login_and_authorize(config, page)
         save_storage_state(context, STORAGE_STATE_PATH)
         create_free_project_state()
     yield page
@@ -89,7 +88,7 @@ def free_project_context(browser_instance: Browser, config: Config) -> Page:
     page = context.new_page()
 
     if need_login:
-        app = open_login_and_autorize(config, page)
+        app = open_login_and_authorize(config, page)
 
         app.projects_page.should_be_loaded()
         app.projects_page.header.select_company("Free Projects")
@@ -101,7 +100,7 @@ def free_project_context(browser_instance: Browser, config: Config) -> Page:
     context.close()
 
 
-def open_login_and_autorize(config: Config, page: Page) -> Page:
+def open_login_and_authorize(config: Config, page: Page) -> Page:
     app = Application(page, config.base_url, config.app_base_url)
     app.login_page.open()
     app.login_page.is_loaded()

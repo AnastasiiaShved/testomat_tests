@@ -1,0 +1,47 @@
+name: API Tests
+
+on:
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 6 * * 1-5'
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      BASE_APP_URL:
+        required: true
+      TESTOMAT_TOKEN:
+        required: true
+
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install Python 3.14
+        run: uv python install 3.14
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Run API tests
+        env:
+          BASE_APP_URL: ${{ secrets.BASE_APP_URL }}
+          API_TOKEN: ${{ secrets.TESTOMAT_TOKEN }}
+        run: uv run pytest tests/api/ -v --tb=short --html=test_result/api_report.html --self-contained-html
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-html-report
+          path: test_result/api_report.html
+          retention-days: 14

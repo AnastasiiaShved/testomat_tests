@@ -1,19 +1,24 @@
+import pytest
+
 from src.api.projects_client import Project, ProjectsClient
 from tests.fixtures.config import Config
 
 
+@pytest.mark.api
 def test_get_projects_returns_200(projects_client: ProjectsClient):
     projects = projects_client.get_projects()
 
     assert projects.status_code == 200
 
 
+@pytest.mark.api
 def test_get_projects_response_is_json(projects_client: ProjectsClient):
     projects = projects_client.get_projects()
 
     assert "application/vnd.api+json" in projects.headers["Content-Type"]
 
 
+@pytest.mark.api
 def test_get_projects_response_is_iterable(projects_client: ProjectsClient):
     projects = projects_client.get_projects()
 
@@ -26,12 +31,14 @@ def test_get_projects_response_is_iterable(projects_client: ProjectsClient):
         print(f"URL: {project.url}")
 
 
+@pytest.mark.api
 def test_get_projects_list_is_not_empty(projects_client: ProjectsClient):
     projects = projects_client.get_projects()
 
     assert len(projects) > 0
 
 
+@pytest.mark.api
 def test_get_projects_items_have_required_fields(projects_client: ProjectsClient):
     projects = projects_client.get_projects()
 
@@ -42,6 +49,7 @@ def test_get_projects_items_have_required_fields(projects_client: ProjectsClient
         assert project.attributes
 
 
+@pytest.mark.api
 def test_get_projects_items_type_is_project(projects_client: ProjectsClient):
     projects = projects_client.get_projects()
 
@@ -49,6 +57,7 @@ def test_get_projects_items_type_is_project(projects_client: ProjectsClient):
         assert project.type == "project"
 
 
+@pytest.mark.api
 def test_get_projects_items_have_title(projects_client: ProjectsClient):
     projects = projects_client.get_projects()
 
@@ -57,6 +66,7 @@ def test_get_projects_items_have_title(projects_client: ProjectsClient):
         assert len(project.title) > 0
 
 
+@pytest.mark.api
 def test_get_projects_items_have_slug(projects_client: ProjectsClient):
     projects = projects_client.get_projects()
 
@@ -66,6 +76,7 @@ def test_get_projects_items_have_slug(projects_client: ProjectsClient):
             assert len(project.slug) > 0
 
 
+@pytest.mark.api
 def test_get_projects_unauthorized(config: Config):
     projects = ProjectsClient.unauthorized(config.app_base_url).get_projects()
 

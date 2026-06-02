@@ -15,6 +15,11 @@ dependencies = [
     "selenium>=4.43.0",
 ]
 
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.9.0",
+]
+
 [tool.pytest.ini_options]
 minversion = "8.0"
 testpaths = ["tests"]
@@ -43,6 +48,13 @@ log_cli_format = "%(asctime)s [%(levelname)s] %(message)s"
 log_cli_date_format = "%Y-%m-%d %H:%M:%S"
 xfail_strict = true
 
+
+[tool.ruff]
+target-version = "py313"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
 
 [tool.datamodel-codegen]
 input = "./api-1.yaml"
