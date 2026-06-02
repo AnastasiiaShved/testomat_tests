@@ -139,8 +139,6 @@ def shared_context(browser_instance: Browser, config: Config) -> Page:
 
 @pytest.fixture(scope="function")
 def shared_app(shared_context: Page, config: Config) -> Application:
-    # page = shared_context.pages[0]
-    # clear_browser_state(page)
     yield Application(shared_context, config.base_url, config.app_base_url)
     clear_browser_state(shared_context)
 

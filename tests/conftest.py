@@ -8,6 +8,7 @@ TEST_RESULT_DIR = PROJECT_ROOT / "test_result"
 
 def pytest_configure(config: pytest.Config) -> None:
     if config.option.htmlpath:
+        TEST_RESULT_DIR.mkdir(parents=True, exist_ok=True)
         config.option.htmlpath = str(TEST_RESULT_DIR / 'report.html')
 
 

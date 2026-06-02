@@ -36,12 +36,12 @@ jobs:
         env:
           BASE_APP_URL: ${{ secrets.BASE_APP_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
-        run: uv run pytest tests/api/ -v --tb=short --html=test_result/api_report.html --self-contained-html
+        run: uv run pytest tests/api/ -v --tb=short
 
       - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: api-html-report
-          path: test_result/api_report.html
+          path: test_result/report.html
           retention-days: 14

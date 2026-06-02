@@ -82,7 +82,7 @@ jobs:
           BASE_APP_URL: ${{ secrets.BASE_APP_URL }}
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          API_TOKEN: ${{ secrets.TESTOMAT_TOKEN }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
         run: uv run pytest -m smoke --ignore=tests/web/selenium --ignore=tests/api
 
       - name: Upload HTML report
@@ -136,7 +136,7 @@ jobs:
           BASE_APP_URL: ${{ secrets.BASE_APP_URL }}
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          API_TOKEN: ${{ secrets.TESTOMAT_TOKEN }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
         run: uv run pytest -m regression --ignore=tests/web/selenium --ignore=tests/api
 
       - name: Upload HTML report
