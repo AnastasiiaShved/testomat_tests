@@ -78,3 +78,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Add report links to summary
+        run: |
+          echo "## Test Reports" >> $GITHUB_STEP_SUMMARY
+          echo "- [API Tests](${{ steps.deployment.outputs.page_url }}allure/api/)" >> $GITHUB_STEP_SUMMARY

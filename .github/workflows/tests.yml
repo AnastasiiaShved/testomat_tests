@@ -202,3 +202,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Add report links to summary
+        run: |
+          echo "## Test Reports" >> $GITHUB_STEP_SUMMARY
+          echo "- [Smoke Tests](${{ steps.deployment.outputs.page_url }}allure/smoke/)" >> $GITHUB_STEP_SUMMARY
+          echo "- [Regression Tests](${{ steps.deployment.outputs.page_url }}allure/regression/)" >> $GITHUB_STEP_SUMMARY
