@@ -1,3 +1,4 @@
+import allure
 from selenium.common import NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
@@ -24,9 +25,11 @@ class Wait:
         )
 
     @staticmethod
+    @allure.step
     def _is_locator(target: SelectorElement) -> bool:
         return isinstance(target, tuple) and len(target) == 2
 
+    @allure.step
     def for_visible(self, target: SelectorElement, custom_timeout: int = None) -> WebElement:
         if custom_timeout:
             self._wait = WebDriverWait(self.driver, custom_timeout, poll_frequency=DEFAULT_POLL)
@@ -35,26 +38,34 @@ class Wait:
 
         return self._wait.until(EC.visibility_of(target))
 
+    @allure.step
     def for_invisible(self, locator: BySelector) -> bool:
         return self._wait.until(EC.invisibility_of_element_located(locator))
 
+    @allure.step
     def for_present(self, locator: BySelector) -> WebElement:
         return self._wait.until(EC.presence_of_element_located(locator))
 
+    @allure.step
     def for_clickable(self, locator: BySelector) -> WebElement:
         return self._wait.until(EC.element_to_be_clickable(locator))
 
+    @allure.step
     def for_all_visible(self, locator: BySelector) -> list[WebElement]:
         return self._wait.until(EC.visibility_of_all_elements_located(locator))
 
+    @allure.step
     def for_all_present(self, locator: BySelector) -> list[WebElement]:
         return self._wait.until(EC.presence_of_all_elements_located(locator))
 
+    @allure.step
     def for_url_contains(self, text: str) -> bool:
         return self._wait.until(EC.url_contains(text))
 
+    @allure.step
     def for_url_matches(self, pattern: str) -> bool:
         return self._wait.until(EC.url_matches(pattern))
 
+    @allure.step
     def for_text_in_element(self, locator: BySelector, text: str) -> bool:
         return self._wait.until(EC.text_to_be_present_in_element(locator, text))

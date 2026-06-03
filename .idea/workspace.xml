@@ -4,11 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc6b41e1-626e-48d4-96dd-d056d9b96261" name="Changes" comment="MNFCT-2.1-module &#10;added dotenv library for configuration">
-      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+    <list default="true" id="dc6b41e1-626e-48d4-96dd-d056d9b96261" name="Changes" comment="MNFCT-8.3 &#10;add allure, remove html reports">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/tests.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/first_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/first_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/components/project_card.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/components/project_card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/components/project_page_header.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/components/project_page_header.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/components/side_bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/components/side_bar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/components/test_for_suite_popup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/components/test_for_suite_popup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/components/test_modal.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/components/test_modal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/pages/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/pages/home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/pages/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/pages/new_projects.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/pages/new_projects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/pages/project_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/pages/project_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/pages/projects_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/pages/projects_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/selenium/components/profile_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/selenium/components/profile_menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/selenium/core/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/selenium/core/base_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/selenium/core/waits.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/selenium/core/waits.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/selenium/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/selenium/pages/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/selenium/pages/login_pageV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/selenium/pages/login_pageV2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web/selenium/pages/projects_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/selenium/pages/projects_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uv.lock" beforeDir="false" afterPath="$PROJECT_DIR$/uv.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="MNFCT-5.2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,6 +81,13 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for tests.api.suite_and_test_creation_test.test_create_suite_and_case.executor": "Run",
+    "Python tests.Python tests for tests.api.suite_and_test_creation_test.test_suite_controller.executor": "Run",
+    "Python tests.Python tests for tests.api.test_case_crud_test.test_create_test_case.executor": "Run",
+    "Python tests.Python tests for tests.api.test_case_crud_test.test_get_test_by_id.executor": "Run",
+    "Python tests.Python tests for tests.api.test_projects.test_get_projects_response_is_json.executor": "Run",
+    "Python tests.Python tests for tests.api.test_projects.test_get_projects_returns_200.executor": "Run",
+    "Python tests.Python tests for tests.api.test_projects.test_get_projects_unauthorized.executor": "Run",
     "Python tests.Python tests for tests.first_test.login_with_invalid_creds.executor": "Run",
     "Python tests.Python tests for tests.first_test.test_login_with_invalid_creds.executor": "Run",
     "Python tests.Python tests for tests.first_test.test_open_home_page.executor": "Run",
@@ -70,13 +95,31 @@
     "Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_free_project.executor": "Run",
     "Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_new_project.executor": "Run",
     "Python tests.Python tests for tests.first_test.test_should_be_possible_to_select_free_project.executor": "Run",
+    "Python tests.Python tests for tests.fixtures.api.test_controller.executor": "Run",
+    "Python tests.Python tests for tests.web.enterprise_plan_tests.project_creation_test.test_new_project_creation.executor": "Run",
+    "Python tests.Python tests for tests.web.selenium.simple_test_via_selenium.test_login_and_logout.executor": "Run",
+    "Python tests.Python tests for tests.web.selenium.simple_test_via_selenium.test_login_with_page_object.executor": "Run",
+    "Python tests.Python tests for tests.web.selenium.simple_test_via_selenium.test_login_with_page_object_v2.executor": "Run",
+    "Python tests.Python tests for tests.web.selenium.simple_test_via_selenium.test_selenium_login_and_search.executor": "Run",
+    "Python tests.Python tests for tests.web.selenium.simple_test_via_selenium.test_sign_out.executor": "Run",
+    "Python tests.Python tests in api.py.executor": "Run",
     "Python tests.Python tests in first_test.py.executor": "Run",
+    "Python tests.Python tests in free_proj_test.py.executor": "Run",
+    "Python tests.Python tests in project_controller_test.py.executor": "Run",
+    "Python tests.Python tests in project_creation_test.py.executor": "Run",
+    "Python tests.Python tests in projects_page_tests.py.executor": "Run",
+    "Python tests.Python tests in regression_tests.py.executor": "Run",
+    "Python tests.Python tests in suite_and_test_creation_test.py.executor": "Run",
+    "Python tests.Python tests in suite_crud_test.py.executor": "Run",
+    "Python tests.Python tests in switch_company_test.py.executor": "Run",
+    "Python tests.Python tests in test_case_crud_test.py.executor": "Run",
+    "Python tests.Python tests in test_projects.py.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "MNFCT-2.1-module-config",
+    "git-widget-placeholder": "main",
     "ignore_missing_gitignore": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -96,58 +139,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test_result" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in first_test.py">
-    <configuration name="Python tests for tests.first_test.test_login_with_invalid_creds" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="testomat_tests" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.first_test.test_login_with_invalid_creds&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.first_test.test_search_project_in_company" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="testomat_tests" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.first_test.test_search_project_in_company&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.first_test.test_should_be_possible_to_open_free_project" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="testomat_tests" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.first_test.test_should_be_possible_to_open_free_project&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Python tests in project_controller_test.py">
     <configuration name="Python tests for tests.first_test.test_should_be_possible_to_open_new_project" type="tests" factoryName="Autodetect" nameIsGenerated="true">
       <module name="testomat_tests" />
       <option name="ENV_FILES" value="" />
@@ -159,12 +155,13 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;tests.first_test.test_should_be_possible_to_open_new_project&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.first_test.test_should_be_possible_to_select_free_project" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.fixtures.api.test_controller" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="testomat_tests" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,13 +171,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.first_test.test_should_be_possible_to_select_free_project&quot;" />
+      <option name="_new_target" value="&quot;tests.fixtures.api.test_controller&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in first_test.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.web.enterprise_plan_tests.project_creation_test.test_new_project_creation" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="testomat_tests" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,27 +187,82 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/first_test.py&quot;" />
+      <option name="_new_target" value="&quot;tests.web.enterprise_plan_tests.project_creation_test.test_new_project_creation&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in api.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="testomat_tests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/fixtures/api.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in project_controller_test.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="testomat_tests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/api/project_controller_test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in project_creation_test.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="testomat_tests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/web/enterprise_plan_tests/project_creation_test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_new_project" />
+      <item itemvalue="Python tests.Python tests for tests.fixtures.api.test_controller" />
+      <item itemvalue="Python tests.Python tests in api.py" />
+      <item itemvalue="Python tests.Python tests in project_controller_test.py" />
+      <item itemvalue="Python tests.Python tests in project_creation_test.py" />
+      <item itemvalue="Python tests.Python tests for tests.web.enterprise_plan_tests.project_creation_test.test_new_project_creation" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in first_test.py" />
-        <item itemvalue="Python tests.Python tests for tests.first_test.test_login_with_invalid_creds" />
-        <item itemvalue="Python tests.Python tests for tests.first_test.test_should_be_possible_to_open_free_project" />
-        <item itemvalue="Python tests.Python tests for tests.first_test.test_should_be_possible_to_select_free_project" />
-        <item itemvalue="Python tests.Python tests for tests.first_test.test_search_project_in_company" />
+        <item itemvalue="Python tests.Python tests in project_controller_test.py" />
+        <item itemvalue="Python tests.Python tests for tests.fixtures.api.test_controller" />
+        <item itemvalue="Python tests.Python tests in api.py" />
+        <item itemvalue="Python tests.Python tests in project_creation_test.py" />
+        <item itemvalue="Python tests.Python tests for tests.web.enterprise_plan_tests.project_creation_test.test_new_project_creation" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-PY-252.28539.27" />
-        <option value="bundled-python-sdk-07523f343e4f-968fe969f28a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.28539.27" />
+        <option value="bundled-python-sdk-1cd77e80b48f-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.32098.74" />
       </set>
     </attachedChunks>
   </component>
@@ -249,7 +301,63 @@
       <option name="project" value="LOCAL" />
       <updated>1773958632569</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="MNFCT-6 &#10;try to use the selenium - create the tests, pages objects, components">
+      <option name="closed" value="true" />
+      <created>1777500999624</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1777500999624</updated>
+    </task>
+    <task id="LOCAL-00005" summary="MNFCT-7 &#10;create the controller, models and tests for apy">
+      <option name="closed" value="true" />
+      <created>1779799580077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1779799580077</updated>
+    </task>
+    <task id="LOCAL-00006" summary="MNFCT-8 &#10;ci: add GitHub Actions workflows for API and E2E tests">
+      <option name="closed" value="true" />
+      <created>1780431199952</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1780431199952</updated>
+    </task>
+    <task id="LOCAL-00007" summary="MNFCT-8.1 &#10;fixed API_TOKEN">
+      <option name="closed" value="true" />
+      <created>1780431879816</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780431879816</updated>
+    </task>
+    <task id="LOCAL-00008" summary="MNFCT-8.2 &#10;ci: configure automated API and E2E test pipelines">
+      <option name="closed" value="true" />
+      <created>1780433424583</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1780433424583</updated>
+    </task>
+    <task id="LOCAL-00009" summary="MNFCT-8.1 &#10;add new API token">
+      <option name="closed" value="true" />
+      <created>1780434937018</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1780434937018</updated>
+    </task>
+    <task id="LOCAL-00010" summary="MNFCT-8.1 &#10;add new API token">
+      <option name="closed" value="true" />
+      <created>1780436435657</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1780436435657</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +378,14 @@
     <MESSAGE value="Add initial setup for Playwright tests" />
     <MESSAGE value="MNFCT-2-module implemented 1st test with kiss, dry, yagni principles&#10;add tests:&#10;1. search project&#10;2. select free projects&#10;3. open free projects&#10;4. open new project&#10;add def:&#10;1. search project&#10;2. login user&#10;3. open home page" />
     <MESSAGE value="MNFCT-2.1-module &#10;added dotenv library for configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="MNFCT-2.1-module &#10;added dotenv library for configuration" />
+    <MESSAGE value="MNFCT-6 &#10;try to use the selenium - create the tests, pages objects, components" />
+    <MESSAGE value="MNFCT-7 &#10;create the controller, models and tests for apy" />
+    <MESSAGE value="MNFCT-8 &#10;ci: add GitHub Actions workflows for API and E2E tests" />
+    <MESSAGE value="MNFCT-8.1 &#10;fixed API_TOKEN" />
+    <MESSAGE value="MNFCT-8.2 &#10;ci: configure automated API and E2E test pipelines" />
+    <MESSAGE value="MNFCT-8.1 &#10;add new API token" />
+    <MESSAGE value="MNFCT-8.3 &#10;add allure, remove html reports" />
+    <option name="LAST_COMMIT_MESSAGE" value="MNFCT-8.3 &#10;add allure, remove html reports" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />

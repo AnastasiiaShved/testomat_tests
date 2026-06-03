@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page
 
 from src.web.components.test_for_suite_popup import TestForSuitePopup

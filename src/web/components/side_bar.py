@@ -1,6 +1,7 @@
 import re
 from typing import Self
 
+import allure
 from playwright.sync_api import Page, expect
 
 
@@ -28,6 +29,7 @@ class SideBar:
         self.projects = self.page.get_by_role("link", name="Projects")
         self.profile = self.page.get_by_role("link", name="Profile")
 
+    @allure.step
     def is_loaded(self):
         expect(self.logo).to_be_visible()
         expect(self.menu).to_be_visible()
@@ -35,18 +37,22 @@ class SideBar:
         # expect(self.projects).to_be_visible()
         return self
 
+    @allure.step
     def navigate_to(self, section: str):
         self.page.get_by_role("link", name=section).click()
 
+    @allure.step
     def click_logo(self) -> Self:
         self.logo.click(force=True)
         return self
 
+    @allure.step
     def expect_tab_active(self, section: str) -> Self:
         link = self.menu.locator(f"a.nav-item:has-text('{section}')")
         expect(link).to_have_class(re.compile("active"))
         return self
 
+    @allure.step
     def is_active(self, section: str):
         link = self.menu.locator(f"a.nav-item:has-text('{section}')")
         expect(link).to_have_class(re.compile("active"))

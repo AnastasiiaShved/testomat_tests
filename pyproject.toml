@@ -9,6 +9,7 @@ dependencies = [
     "pydantic>=2.13.4",
     "pytest==8.4.1",
     "pytest-html==4.2.0",
+    "allure-pytest>=2.16.0",
     "pytest-playwright==0.7.2",
     "python-dotenv==1.2.2",
     "requests==2.32.3",
@@ -33,6 +34,7 @@ addopts = [
     "--tb=short",
     "--html=test_result/report.html",
     "--self-contained-html",
+    "--alluredir=test_result/allure-results",
 ]
 markers = [
     "smoke: Quick smoke test for basic functionality",
